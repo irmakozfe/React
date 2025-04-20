@@ -1,0 +1,25 @@
+.favorites-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+    text-align: center;
+    background-color: #f0f0f0;
+    border-radius: 12px;
+    margin: 2rem;
+    padding: 2rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .favorites-empty h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+  }
+  
+  .favorites-empty p {
+    font-size: 1.1rem;
+    color: #666;
+  }
+  

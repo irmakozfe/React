@@ -1,14 +1,32 @@
 import MovieCard from "../components/MovieCard"
 import { useState, useEffect } from "react";
-import { searchMovies, getPopularMovies } from "../services/api";
+import { searchMovies, getPopularMovies } from "../services/api.js";
 import "../css/Navbar.css"
 import "../css/Home.css"
 
 function Home()  {
     const [searchQuery, setSearchQuery] = useState("");
     const[movies, setMovies] = useState([])
+    const [error, setError] = useState(null)
+    const[loading, setLoading]= useState(true)
 
-    useEffect(() =>{}, [])
+    useEffect(() => {
+        const loadPopularMovies = async () => {
+          try {
+            const popularMovies = await getPopularMovies();
+           
+            setMovies(popularMovies);
+          } catch (err) {
+            console.log(err)
+            setError("Failed to load");
+          } finally {
+            setLoading(false);
+          }
+        };
+      
+        loadPopularMovies();
+      }, []);
+      
     
 
      const handleSearch= (e) => {
@@ -30,6 +48,9 @@ function Home()  {
             <button type="submit" className="search-button">Search</button>
         </form>
 
+        {error && <div className="error-message">{error}</div> }
+
+        {loading ? (<div className="loading"> Loading...</div>): (
 
         <div className="movies-grid">
             {movies.map((movie) => (
@@ -37,7 +58,7 @@ function Home()  {
                 (<MovieCard movie={movie} key={movie.id}/>
     )
     ))}
-        </div>
+        </div>)}
     </div> );
 }
 
