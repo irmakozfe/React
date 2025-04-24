@@ -9,11 +9,13 @@
   }
   
   .navbar-brand a {
-    font-size: 1.5rem;
+    font-family:'Bangers', cursive;
+    font-size: 2rem;
     font-weight: bold;
-    color: #ffffff;
+    color:#ffffff;
     text-decoration: none;
     transition: color 0.3s ease;
+  
   }
   
   .navbar-brand a:hover {
