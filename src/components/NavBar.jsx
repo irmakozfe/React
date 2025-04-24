@@ -5,7 +5,7 @@ function NavBar(){
     return <nav className="navbar">
 
     <div className="navbar-brand">
-        <Link to="/">Maxflix</Link>
+        <Link to="/">AREYOUWATCHING</Link>
     </div>
 
     <div className="navbar-links">
